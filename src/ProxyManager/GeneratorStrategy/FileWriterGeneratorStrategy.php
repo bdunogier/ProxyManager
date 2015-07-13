@@ -62,6 +62,8 @@ class FileWriterGeneratorStrategy implements GeneratorStrategyInterface
         file_put_contents($tmpFileName, "<?php\n\n" . $generatedCode);
         rename($tmpFileName, $fileName);
 
+        eval($generatedCode);
+
         return $generatedCode;
     }
 }
